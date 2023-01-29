@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
         return;
       }
 
-      AtTextSpan at = element.span;
+      AtTextSpan at = element.span as AtTextSpan;
 
       _valueContent += "名称:${at.text} \t\t ID:${at.id}\n";
     });
@@ -80,7 +80,6 @@ class _MyAppState extends State<MyApp> {
             child: Column(
               children: [
                 TextSpanField(
-                  maxLines: null,
                   textSpanBuilder: _textSpanBuilder,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(20),
@@ -153,12 +152,12 @@ class AtTextSpan extends TextSpan {
   final String id;
 
   const AtTextSpan({
-    @required this.id,
-    String text,
-    List<InlineSpan> children,
-    TextStyle style,
-    GestureRecognizer recognizer,
-    String semanticsLabel,
+    required this.id,
+    String? text,
+    List<InlineSpan>? children,
+    TextStyle? style,
+    GestureRecognizer? recognizer,
+    String? semanticsLabel,
   }) : super(
             text: text,
             children: children,

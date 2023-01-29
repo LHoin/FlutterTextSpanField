@@ -1,6 +1,6 @@
-# text_span_field_example
+# example
 
-Demonstrates how to use the text_span_field plugin.
+A new Flutter project.
 
 ## Getting Started
 

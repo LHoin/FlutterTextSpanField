@@ -8,21 +8,21 @@ import 'package:text_span_field/text_span_builder.dart';
 /// 2. 增加 style 属性达到动态样式控制
 class CustomEditableText extends EditableText {
   /// 构建器
-  final TextSpanBuilder builder;
+  final TextSpanBuilder? builder;
 
   CustomEditableText({
-    Key key,
+    Key? key,
     this.builder,
-    @required controller,
-    @required focusNode,
+    required controller,
+    required focusNode,
     readOnly = false,
     obscureText = false,
     autocorrect = true,
     enableSuggestions = true,
-    @required style,
-    StrutStyle strutStyle,
-    @required cursorColor,
-    @required backgroundCursorColor,
+    required style,
+    StrutStyle? strutStyle,
+    required cursorColor,
+    required backgroundCursorColor,
     textAlign = TextAlign.start,
     textDirection,
     locale,
@@ -33,11 +33,11 @@ class CustomEditableText extends EditableText {
     forceLine = true,
     textWidthBasis = TextWidthBasis.parent,
     autofocus = false,
-    bool showCursor,
+    bool? showCursor,
     showSelectionHandles = false,
     selectionColor,
     selectionControls,
-    TextInputType keyboardType,
+    TextInputType? keyboardType,
     textInputAction,
     textCapitalization = TextCapitalization.none,
     onChanged,
@@ -45,7 +45,7 @@ class CustomEditableText extends EditableText {
     onSubmitted,
     onSelectionChanged,
     onSelectionHandleTapped,
-    List<TextInputFormatter> inputFormatters,
+    List<TextInputFormatter>? inputFormatters,
     rendererIgnoresPointer = false,
     cursorWidth = 2.0,
     cursorRadius,
@@ -120,12 +120,12 @@ class CustomEditableText extends EditableText {
 
 class _EditableTextSpan extends EditableTextState {
   @override
-  CustomEditableText get widget => super.widget;
+  CustomEditableText get widget => super.widget as CustomEditableText;
 
   @override
   TextSpan buildTextSpan() {
     return TextSpan(
         style: widget.style,
-        children: widget.builder.buildSpan(textEditingValue.text));
+        children: widget.builder!.buildSpan(textEditingValue.text) as List<InlineSpan>?);
   }
 }

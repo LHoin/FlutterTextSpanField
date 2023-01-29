@@ -11,10 +11,10 @@ class TextSpanWidget extends Comparable<TextSpanWidget> {
   final bool block;
 
   /// 组件
-  final TextSpan span;
+  final TextSpan? span;
 
   TextSpanWidget({
-    @required this.range,
+    required this.range,
     this.block: false,
     this.span,
   });
